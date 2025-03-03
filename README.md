@@ -1,13 +1,14 @@
 # Firefox Sidebar
 
-Customizable sidebar compatible with default firefox layout:
+Customizable sidebar for Firefox-based browser:
 
 <p align="center">
     <img src="./images/always-visible.png" width="49%" /> <img src="./images/compact.png" width="49%" />
 </p>
 
 > [!NOTE]
-> Other themes (like [`firefox gnome theme`](https://github.com/rafaelmardojai/firefox-gnome-theme)) need to be installed first but should be compatible with this one
+> Other themes (like [`firefox gnome theme`](https://github.com/rafaelmardojai/firefox-gnome-theme)) need to be installed first but should be compatible with this one.  
+> If you are using a Firefox fork changing the default layout (like [Zen](https://zen-browser.app/)), compatibility isn't garanteed.
 
 ## Configuration
 

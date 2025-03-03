@@ -26,4 +26,4 @@ You can modify the following CSS variables:
 | `--gap-radius`              | 10px          | Border radius of the web page                     |
 
 > [!NOTE]
-> Firefox Sidebar is compatible with other themes (like [`firefox gnome theme`](https://github.com/rafaelmardojai/firefox-gnome-theme)) but need to be installed first
+> Other themes (like [`firefox gnome theme`](https://github.com/rafaelmardojai/firefox-gnome-theme)) need to be installed first but should be compatible with this one

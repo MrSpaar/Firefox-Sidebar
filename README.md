@@ -6,6 +6,11 @@ Customizable sidebar compatible with default firefox layout:
     <img src="./images/always-visible.png" width="49%" /> <img src="./images/compact.png" width="49%" />
 </p>
 
+> [!NOTE]
+> Other themes (like [`firefox gnome theme`](https://github.com/rafaelmardojai/firefox-gnome-theme)) need to be installed first but should be compatible with this one
+
+## Configuration
+
 There are two parameters in `about:config`:
 
 | Property                 | Value   | Description                                    |
@@ -24,6 +29,3 @@ You can modify the following CSS variables:
 | `--compact-detection-width` | 5px           | How far from the left the sidebar begins to show  |
 | `--gap-size`                | 12px          | Thickness of the gaps around the web page         |
 | `--gap-radius`              | 10px          | Border radius of the web page                     |
-
-> [!NOTE]
-> Other themes (like [`firefox gnome theme`](https://github.com/rafaelmardojai/firefox-gnome-theme)) need to be installed first but should be compatible with this one

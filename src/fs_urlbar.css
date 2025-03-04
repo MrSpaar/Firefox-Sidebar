@@ -1,0 +1,65 @@
+#urlbar-container:has(#urlbar[breakout-extend="true"]) {
+    border-radius: 6px !important;
+    background-color: var(--secondary-background) !important;
+
+    #urlbar {
+        position: fixed !important;
+        width: var(--floating-urlbar-width) !important;
+        left: calc(
+            50vw - var(--floating-urlbar-width) / 2 + var(--sidebar-width) / 2
+        ) !important;
+        top: var(--urlbar-top-position) !important;
+        border-radius: 12px !important;
+    }
+    
+    #urlbar,
+    .urlbarView {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .urlbar-input-container,
+    .urlbarView {
+        border: 1px #373839 solid !important;
+    }
+
+    #urlbar .urlbarView,
+    .urlbar-input-container,
+    .urlbarView-body-outer {
+        background: var(--sidebar-background) !important;
+    }
+
+    .urlbar-input-container {
+        border-bottom: none !important;
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    #urlbar-input, #tracking-protection-icon-container {
+        margin-left: 11px !important;
+    }
+    
+    #urlbar-search-mode-indicator {
+        margin-left: 4px !important;
+    }
+    
+    #urlbar[searchmode=""] #urlbar-input, #urlbar[pageproxystate="valid"] #urlbar-input {
+        margin-left: 0 !important;
+    }
+
+    .urlbarView {
+        width: 100% !important;
+        box-shadow: none !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+    }
+
+    #urlbar-results .urlbarView-row:not(:last-child) {
+        margin-bottom: 4px !important;
+    }
+
+    .search-one-offs,
+    .urlbarView-row[label="Suggestions"],
+    .urlbarView-row[label="Shortcuts"] {
+        display: none !important;
+    }
+}

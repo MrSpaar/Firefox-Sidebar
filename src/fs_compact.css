@@ -1,0 +1,42 @@
+@media not (-moz-bool-pref: "custom.sidebar.visible") {
+    #navigator-toolbox {
+        height: 75vh !important;
+        margin-top: 13vh !important;
+        position: absolute !important;
+
+        left: calc(
+            -1 * var(--sidebar-width) - var(--compact-margin)
+        ) !important;
+        transition: left 0.15s ease !important;
+
+        margin-left: var(--compact-margin) !important;
+        border: 1px #373839 solid !important;
+        border-radius: 5px !important;
+
+        &:hover,
+        &:has(#urlbar[focused=""]) {
+            left: 0px !important;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            height: 100%;
+            position: absolute;
+        }
+
+        &::before {
+            width: calc(2 * var(--sidebar-width));
+            left: calc(-2 * var(--sidebar-width));
+        }
+
+        &::after {
+            width: var(--compact-detection-width);
+            left: calc(var(--sidebar-width) - 1px);
+        }
+
+        #nav-bar #urlbar-container {
+            width: calc(var(--sidebar-width) - 2 * 7px) !important;
+        }
+    }
+}

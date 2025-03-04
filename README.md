@@ -19,7 +19,7 @@ There are two parameters in `about:config`:
 | `custom.sidebar.visible` | Boolean | Switch between always visible and compact mode |
 | `custom.sidebar.gaps`    | Boolean | Have gaps around the web page or not           |
 
-You can modify the following CSS variables:
+`userChrome.css` contains the following CSS variables:
 
 | Variable name               | Default value              | Description                                       |
 |---------------------------- | -------------------------- |-------------------------------------------------- |
@@ -32,6 +32,12 @@ You can modify the following CSS variables:
 | `--gap-radius`              | 10px                       | Border radius of the web page                     |
 | `--sidebar-background`      | --gnome-toolbar-background | Sidebar and gap background color                  |
 | `--secondary-background`    | --gnome-window-background  | Bookmark and history background color             |
+
+`userContent.css` contains the following CSS variables:
+
+| Variable name                  | Default value              | Description                                                      |
+|------------------------------- | -------------------------- |----------------------------------------------------------------- |
+| `--in-content-page-background` | --gnome-window-background  | Background color of firefox's internal pages (about:config, ...) |
 
 > [!NOTE]
 > If Gnome colors are not found, it *should* revert to whatever the background colors were.

@@ -1,0 +1,3 @@
+:root {
+    --in-content-page-background: var(--gnome-window-background, inherit) !important;;
+}

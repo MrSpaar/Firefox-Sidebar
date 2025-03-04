@@ -1,6 +1,6 @@
-@import "src/variable.css";
-@import "src/toolbox.css";
-@import "src/urlbar.css";
-@import "src/compact.css";
-@import "src/visible.css";
-@import "src/browser-sidebar.css";
+@import "src/fs_variable.css";
+@import "src/fs_toolbox.css";
+@import "src/fs_urlbar.css";
+@import "src/fs_compact.css";
+@import "src/fs_visible.css";
+@import "src/fs_sidebar.css";

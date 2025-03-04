@@ -20,11 +20,11 @@ To install Firefox Sidebar:
   ```
 - Add this line to your profile's `userChrome.css`:
   ```css
-  @include "firefox-sidebar/customChrome.css";  /* In your userChrome */
+  @import "firefox-sidebar/customChrome.css";  /* In your userChrome */
   ```
 - Add this line to your profile's `userContent.css`:
   ```css
-  @include "firefox-sidebar/customContent.css";  /* In your userContent */
+  @import "firefox-sidebar/customContent.css";  /* In your userContent */
   ```
 
 ## Configuration

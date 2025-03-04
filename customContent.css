@@ -1,4 +1,4 @@
-@import url("src/variable.css");
+@import "src/fs_variable.css";
 
 :root {
     --in-content-page-background: var(

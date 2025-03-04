@@ -1,0 +1,8 @@
+@import url("src/variable.css");
+
+:root {
+    --in-content-page-background: var(
+        --secondary-background,
+        inherit
+    ) !important;
+}

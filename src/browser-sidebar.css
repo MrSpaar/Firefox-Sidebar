@@ -1,0 +1,15 @@
+body,
+#browser {
+    background: var(--sidebar-background) !important;
+}
+
+#sidebar-header,
+findbar {
+    border: none !important;
+    background-color: var(--secondary-background) !important;
+}
+
+#sidebar-splitter {
+    width: 2px !important;
+    border: none !important;
+}

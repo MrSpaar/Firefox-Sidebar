@@ -41,7 +41,7 @@ There are two parameters in `about:config`:
 | Variable name               | Default value              | Description                                           |
 |---------------------------- | -------------------------- |------------------------------------------------------ |
 | `--sidebar-width`           | 200px                      | Width of the sidebar in both modes                    |
-| `--urlbar-width`            | 600px                      | Width of the urlbar when opened                       |
+| `floating-urlbar-width`     | 600px                      | Width of the urlbar when opened                       |
 | `--urlbar-top-position`     | 20vh                       | Equivalent to the top margin of the opened urlbar     |
 | `--compact-margin`          | 5px                        | Left margin of the compact sidebar                    |
 | `--compact-detection-width` | 5px                        | How far from the left the sidebar begins to show      |

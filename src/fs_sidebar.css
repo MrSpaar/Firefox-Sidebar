@@ -1,12 +1,13 @@
-body,
-#browser {
+body, #browser {
     background: var(--sidebar-background) !important;
 }
 
-#sidebar-header,
-findbar {
+#sidebar-header, findbar {
+    background: var(--secondary-background) !important;
+}
+
+#sidebar-header, findbar {
     border: none !important;
-    background-color: var(--secondary-background) !important;
 }
 
 #sidebar-splitter {

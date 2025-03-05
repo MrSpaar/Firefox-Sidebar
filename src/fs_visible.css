@@ -20,18 +20,20 @@
             overflow: hidden !important;
             border-radius: var(--gap-radius) !important;
         }
-
-        #browser {
-            top: calc(var(--gap-size)) !important;
-            left: calc(200px + var(--gap-size) - 6px) !important;
-            height: calc(100% - var(--gap-size) * 2) !important;
-            width: calc(
-                100% - var(--sidebar-width) - var(--gap-size) * 2 + 6px
-            ) !important;
+        
+        splitter#sidebar-splitter {
+            width: var(--gap-size) !important;
         }
 
-        #sidebar-box {
-            margin-right: calc(var(--gap-size) - 2px) !important;
+        #browser {
+            top: 0 !important;
+            left: calc(200px - 6px) !important;
+            height: calc(100% - var(--gap-size)*2) !important;
+            width: calc(
+                100% - var(--sidebar-width) - var(--gap-size)
+            ) !important;
+            
+            margin: var(--gap-size) !important;
         }
     }
 }

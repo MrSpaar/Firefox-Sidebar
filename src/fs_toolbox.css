@@ -17,6 +17,7 @@
 #back-button,
 #forward-button,
 #identity-icon-label,
+#urlbar-go-button,
 :root[customtitlebar] #nav-bar .titlebar-buttonbox-container,
 #urlbar-container #star-button-box,
 #urlbar-container #page-action-buttons > * {
@@ -75,14 +76,22 @@
         
         *[role="button"] {
             margin: 0px !important;
-            padding: 3px !important;
+            padding: 2px !important;
+        }
+        
+        &[unifiedsearchbutton-available=""] #urlbar-input {
+            margin-left: 5px !important;
+        }
+        
+        #tracking-protection-icon-container {
+            margin-left: 3px !important;
         }
 
     }
     
     .chromeUI #identity-icon-box {
         padding: 0 !important;
-        margin-left: 6px !important;
+        margin-left: 5px !important;
         margin-right: -3px !important;
         background-color: transparent !important;
     }

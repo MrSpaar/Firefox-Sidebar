@@ -79,8 +79,8 @@
             padding: 2px !important;
         }
         
-        &[unifiedsearchbutton-available=""] #urlbar-input {
-            margin-left: 5px !important;
+        &[unifiedsearchbutton-available=""] #identity-box {
+            margin-left: 4px !important;
         }
         
         #tracking-protection-icon-container {

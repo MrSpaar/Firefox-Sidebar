@@ -1,6 +1,7 @@
 #urlbar-container:has(#urlbar[breakout-extend="true"]) {
+    left: 3px !important;
     border-radius: 6px !important;
-    background-color: var(--secondary-background) !important;
+    background-color: var(--tab-background) !important;
 
     #urlbar {
         position: fixed !important;

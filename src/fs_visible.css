@@ -26,10 +26,8 @@
         }
 
         #browser {
-            left: calc(var(--sidebar-width) - 6px) !important;
-            width: calc(
-                100% - var(--sidebar-width) + 6px
-            ) !important;
+            left: calc(var(--sidebar-width) - var(--gap-size)) !important;
+            width: calc(100% - var(--sidebar-width) + var(--gap-size)) !important;
             
             box-sizing: border-box !important;
             border: var(--sidebar-background) var(--gap-size) solid !important;

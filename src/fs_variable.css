@@ -11,4 +11,5 @@
 
     --sidebar-background: var(--gnome-toolbar-background, inherit);
     --secondary-background: var(--gnome-window-background, inherit);
+    --tab-background: var(--gnome-tabbar-tab-active-background, inherit);
 }

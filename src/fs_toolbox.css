@@ -24,7 +24,9 @@
     display: none !important;
 }
 
-#urlbar:hover #page-action-buttons > *:not([hidden="true"]):not(#star-button-box) {
+#urlbar:hover
+    #page-action-buttons
+    > *:not([hidden="true"]):not(#star-button-box) {
     display: flex !important;
 }
 
@@ -70,30 +72,32 @@
     left: 0px !important;
     position: absolute !important;
     width: calc(var(--sidebar-width) - 2 * 6px) !important;
-    
+
     #urlbar {
         outline: none !important;
-        
+
         *[role="button"] {
             margin: 0px !important;
             padding: 2px !important;
         }
-        
-        &[unifiedsearchbutton-available=""] #identity-box {
-            margin-left: 4px !important;
-        }
-        
+
         #tracking-protection-icon-container {
             margin-left: 3px !important;
         }
 
-    }
-    
-    .chromeUI #identity-icon-box {
-        padding: 0 !important;
-        margin-left: 5px !important;
-        margin-right: -3px !important;
-        background-color: transparent !important;
+        :has(#tracking-protection-icon-container[hidden="true"]) {
+            #identity-icon-box {
+                margin-left: 3px !important;
+            }
+
+            .chromeUI#identity-box {
+                margin-right: 3px !important;
+            }
+        }
+
+        .chromeUI #identity-icon-box {
+            background-color: transparent !important;
+        }
     }
 }
 
@@ -106,12 +110,15 @@
     max-height: var(--tab-min-height) !important;
 }
 
-tabs#tabbrowser-tabs[orient="horizontal"]
-    tab
-    .tab-content
-    .tab-icon-stack:not([pinned]) {
-    margin-left: 0px !important;
-    margin-inline-start: initial !important;
+tabs#tabbrowser-tabs[orient="horizontal"] tab {
+    .tab-background[selected] {
+        background-color: var(--tab-background) !important;
+    }
+
+    .tab-content .tab-icon-stack:not([pinned]) {
+        margin-left: 0px !important;
+        margin-inline-start: initial !important;
+    }
 }
 
 scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]

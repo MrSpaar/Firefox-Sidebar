@@ -26,14 +26,13 @@
         }
 
         #browser {
-            top: 0 !important;
-            left: calc(200px - 6px) !important;
-            height: calc(100% - var(--gap-size)*2) !important;
+            left: calc(var(--sidebar-width) - 6px) !important;
             width: calc(
-                100% - var(--sidebar-width) - var(--gap-size)
+                100% - var(--sidebar-width) + 6px
             ) !important;
             
-            margin: var(--gap-size) !important;
+            box-sizing: border-box !important;
+            border: var(--sidebar-background) var(--gap-size) solid !important;
         }
     }
 }

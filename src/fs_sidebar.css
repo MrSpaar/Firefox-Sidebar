@@ -1,4 +1,4 @@
-body, #browser {
+#browser {
     background: var(--sidebar-background) !important;
 }
 

@@ -16,17 +16,15 @@
 
 #back-button,
 #forward-button,
-#identity-box,
+#identity-icon-label,
 :root[customtitlebar] #nav-bar .titlebar-buttonbox-container,
 #urlbar-container #star-button-box,
 #urlbar-container #page-action-buttons > * {
     display: none !important;
 }
 
-#urlbar:hover
-    #page-action-buttons
-    > *:not([hidden="true"]):not(#star-button-box) {
-    display: initial !important;
+#urlbar:hover #page-action-buttons > *:not([hidden="true"]):not(#star-button-box) {
+    display: flex !important;
 }
 
 #downloads-button,
@@ -68,24 +66,25 @@
 
 #urlbar-container {
     top: 43px !important;
-    left: 6px !important;
+    left: 0px !important;
     position: absolute !important;
     width: calc(var(--sidebar-width) - 2 * 6px) !important;
-
-    &, #urlbar {
-       margin: 0 !important;   
-    }
     
     #urlbar {
         outline: none !important;
+        
+        *[role="button"] {
+            margin: 0px !important;
+            padding: 3px !important;
+        }
+
     }
     
-    #urlbar-input {
+    .chromeUI #identity-icon-box {
+        padding: 0 !important;
         margin-left: 6px !important;
-    }
-    
-    #urlbar[searchmode=""] #urlbar-input, #urlbar[pageproxystate="valid"] #urlbar-input {
-        margin-left: 0 !important;
+        margin-right: -3px !important;
+        background-color: transparent !important;
     }
 }
 

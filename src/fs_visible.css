@@ -15,22 +15,23 @@
 
     @media (-moz-bool-pref: "custom.sidebar.gaps") {
         #tabbrowser-tabbox,
-        #sidebar-box,
-        #browser {
+        #sidebar-box {
             overflow: hidden !important;
             border-radius: var(--gap-radius) !important;
         }
         
         splitter#sidebar-splitter {
             width: var(--gap-size) !important;
+            background-color: transparent !important;
         }
 
         #browser {
-            left: calc(var(--sidebar-width) - var(--gap-size)) !important;
-            width: calc(100% - var(--sidebar-width) + var(--gap-size)) !important;
+            left: var(--sidebar-width) !important;
+            width: calc(100% - var(--sidebar-width)) !important;
             
             box-sizing: border-box !important;
-            border: var(--sidebar-background) var(--gap-size) solid !important;
+            border: transparent var(--gap-size) solid !important;
+            border-left: none !important;
         }
     }
 }

@@ -3,6 +3,10 @@
     border-radius: 6px !important;
     background-color: var(--tab-background) !important;
 
+    #urlbar, #urlbar .urlbarView-body-outer {
+        background: var(--sidebar-background) !important;
+    }
+    
     #urlbar {
         position: fixed !important;
         width: var(--floating-urlbar-width) !important;
@@ -11,7 +15,7 @@
             50vw - var(--floating-urlbar-width) / 2 + var(--sidebar-width) / 2
         ) !important;
 
-        border-radius: 12px !important;
+        
     }
     
     #urlbar,
@@ -20,20 +24,21 @@
         padding: 0 !important;
     }
 
+    #urlbar, .urlbar-input-container {
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    #urlbar .urlbarView-body-outer {
+        border-radius: 0 0 12px 12px !important;
+    }
+    
+    .urlbar-input-container {
+        border-bottom: none !important;
+    }
+    
     .urlbar-input-container,
     .urlbarView {
         border: 1px #373839 solid !important;
-    }
-
-    #urlbar .urlbarView,
-    .urlbar-input-container,
-    .urlbarView-body-outer {
-        background: var(--sidebar-background) !important;
-    }
-
-    .urlbar-input-container {
-        border-bottom: none !important;
-        border-radius: 12px 12px 0 0 !important;
     }
     
     #urlbar-input {

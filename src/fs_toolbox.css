@@ -3,10 +3,13 @@
     width: var(--sidebar-width) !important;
 }
 
-#navigator-toolbox,
+#navigator-toolbox {
+    background-color: var(--sidebar-background) !important;
+}
+
 #nav-bar,
 #TabsToolbar {
-    background-color: var(--sidebar-background) !important;
+    background-color: transparent !important; 
 }
 
 #nav-bar {
@@ -71,7 +74,7 @@
     top: 43px !important;
     left: 0px !important;
     position: absolute !important;
-    width: calc(var(--sidebar-width) - 2 * 6px) !important;
+    width: calc(var(--sidebar-width) - 2*var(--gap-size) + 1px) !important;
 
     #urlbar {
         outline: none !important;

@@ -202,7 +202,7 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     width: calc(100% - var(--sidebar-width)) !important;
 }
 
-#sidebar-header, findbar, #sidebar-box, #customization-container {
+#sidebar-header, findbar, #sidebar-box, #customization-container, #tabbrowser-tabpanels {
     background: var(--secondary-background) !important;
 }
 

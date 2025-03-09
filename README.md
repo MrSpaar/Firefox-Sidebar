@@ -6,6 +6,7 @@ Customizable sidebar for Firefox-based browser, only works with [`firefox gnome 
     <img src="./images/always-visible.png" width="49%" /> <img src="./images/compact.png" width="49%" />
 </p>
 
+<<<<<<< HEAD
 ## Installation
 
 To install Firefox Sidebar:
@@ -22,6 +23,12 @@ To install Firefox Sidebar:
   ```css
   @import "firefox-sidebar/customContent.css";
   ```
+=======
+To install the theme, execute the following command:
+```bash
+curl -s -o- https://raw.githubusercontent.com/mrspaar/firefox-sidebar/master/install.sh | bash
+```
+>>>>>>> 5871b05 (refactor: standalone theme with installer)
 
 ## Configuration
 
@@ -43,3 +50,9 @@ You can modify `fs_variables.css`:
 | `--compact-detection-width` | 5px                        | How far from the left the sidebar begins to show      |
 | `--gap-size`                | 12px                       | Thickness of the gaps around the web page             |
 | `--gap-radius`              | 10px                       | Border radius of the web page                         |
+<<<<<<< HEAD
+=======
+| `--sidebar-background`      | --gnome-toolbar-background | Sidebar and gap background color                      |
+| `--secondary-background`    | --gnome-window-background  | Bookmark, history and internal pages background color |
+| `--tab-background`          | --gnome-selected-color     | Tab and empty urlbar background color                 |
+>>>>>>> 5871b05 (refactor: standalone theme with installer)

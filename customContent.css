@@ -1,8 +1,0 @@
-@import "src/fs_variable.css";
-
-:root {
-    --in-content-page-background: var(
-        --secondary-background,
-        inherit
-    ) !important;
-}

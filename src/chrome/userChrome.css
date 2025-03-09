@@ -1,0 +1,358 @@
+@import "variables.css";
+
+/*********************
+     TOOLBOX STYLE
+**********************/
+
+#back-button,
+#forward-button,
+#identity-icon-label,
+#urlbar-go-button,
+.titlebar-spacer,
+.titlebar-buttonbox-container,
+#alltabs-button,
+#tabs-newtab-button,
+#wrapper-new-tab-button,
+#nav-bar-overflow-button,
+#customization-panel-container,
+#urlbar-container #star-button-box,
+#urlbar-container #page-action-buttons > * {
+    display: none !important;
+}
+
+#navigator-toolbox {
+    z-index: 99 !important;
+    width: var(--sidebar-width) !important;
+    background-color: var(--sidebar-background) !important;
+}
+
+#navigator-toolbox, #nav-bar {
+    border: none !important;
+}
+
+#nav-bar,
+#TabsToolbar {
+    background-color: transparent !important;
+}
+
+#nav-bar {
+    position: initial !important;
+    padding: var(--gap-size) !important;
+    padding-right: 1px !important;
+
+    toolbarbutton {
+        padding: 0 !important;
+    }
+
+    #downloads-button,
+    #unified-extensions-button,
+    #PanelUI-menu-button,
+    #preferences-button {
+        z-index: 99 !important;
+        position: absolute !important;
+    }
+
+    #unified-extensions-button {
+        top: var(--gap-size) !important;
+        left: 38px !important;
+    }
+
+    .unified-extensions-item {
+        width: 32px !important;
+        height: 32px !important;
+
+        &:last-child {
+            width: 38px !important;
+        }
+    }
+
+    #PanelUI-menu-button {
+        left: 37px;
+        bottom: var(--gap-size);
+    }
+
+    #preferences-button {
+        left: var(--gap-size);
+        bottom: var(--gap-size);
+    }
+
+    #downloads-button {
+        bottom: var(--gap-size);
+        left: calc(168px - var(--gap-size));
+    }
+}
+
+#urlbar-container {
+    height: 32px !important;
+    min-height: 0px !important;
+    width: calc(var(--sidebar-width) - 2*var(--gap-size)) !important;
+
+    position: absolute !important;
+    left: 1px !important;
+    top: calc(32px + 2*var(--gap-size)) !important;
+
+    &, #urlbar, #urlbar-background {
+        border-radius: 6px !important;
+        box-shadow: none !important;
+        background-color: var(--tab-background) !important;
+    }
+
+    * {
+        outline: none !important;
+    }
+
+    #urlbar:hover
+    #page-action-buttons
+        > *:not([hidden="true"]):not(#star-button-box) {
+        display: flex !important;
+    }
+
+    .urlbar-page-action,
+    #urlbar[unifiedsearchbutton-available=""] #identity-box {
+        width: fit-content !important;
+    }
+
+    #urlbar[unifiedsearchbutton-available=""] #identity-box {
+        margin-left: 6px !important;
+        margin-right: 6px !important;
+
+        #identity-icon-box {
+            padding: 0 !important;
+        }
+    }
+
+    #tracking-protection-icon-container:not([hidden]),
+    .verifiedDomain[pageproxystate="valid"] #identity-icon-box,
+    .verifiedDomain[pageproxystate="valid"] #identity-permission-box,
+    #urlbar[pageproxystate="valid"] .chromeUI #identity-icon-box,
+    .urlbar-page-action {
+        margin: 3px !important;
+        padding: 3px !important;
+        height: fit-content !important;
+    }
+
+    #identity-box.verifiedDomain #identity-icon-box {
+        margin: 3px 0 !important;
+    }
+
+    #urlbar[pageproxystate="valid"] .chromeUI {
+        margin-right: 0px !important;
+
+        #identity-icon-box {
+
+            border-radius: 50% !important;
+            background-color: transparent !important;
+
+            &:hover {
+                background-color: var(--sidebar-background) !important;
+            }
+        }
+    }
+}
+
+#TabsToolbar {
+    --tab-min-height: 32px !important;
+
+    top: calc(64px + 3*var(--gap-size)) !important;
+    left: var(--gap-size) !important;
+    width: calc(100% - 2*var(--gap-size)) !important;
+    position: absolute !important;
+
+    &, #TabsToolbar-customization-target,
+    #TabsToolbar-customization-target #tabbrowser-tabs {
+        height: 100% !important;
+    }
+
+    .tabbrowser-tab {
+        padding: 0 !important;
+        max-height: var(--tab-min-height) !important;
+    }
+
+    .tab-stack {
+        margin-bottom: var(--gap-size) !important;
+    }
+
+    .tab-background {
+        margin: 0 !important;
+        border-radius: 6px !important;
+        box-shadow: none !important;
+
+        &[selected] {
+            background-color: var(--tab-background) !important;
+        }
+    }
+}
+
+scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
+    > * {
+    overflow: hidden scroll;
+    gap: 4px !important;
+    flex-direction: column !important;
+}
+
+#browser {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: absolute !important;
+}
+
+/*********************
+ FLOATING URLBAR STYLE
+**********************/
+
+#urlbar-container:has(#urlbar[breakout-extend="true"]) {
+    --border: 1px #373839 solid;
+    background-color: var(--tab-background) !important;
+
+    #urlbar, .urlbarView, #urlbar-results {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    * {
+        border: none !important;
+    }
+
+    #urlbar {
+        position: fixed !important;
+        width: var(--floating-urlbar-width) !important;
+        top: var(--urlbar-top-position) !important;
+        left: calc(
+            50vw - var(--floating-urlbar-width)/2 + var(--sidebar-width)/2
+        ) !important;
+
+        overflow: hidden !important;
+        border: var(--border) !important;
+        border-radius: var(--gap-radius) !important;
+    }
+
+    #urlbar-background {
+        background-color: var(--sidebar-background) !important;
+    }
+
+    .urlbarView {
+        width: 100% !important;
+        padding: 4px 6px !important;
+        border-top: var(--border) !important;
+    }
+
+    .urlbarView-row[selected] {
+        background-color: var(--tab-background) !important;
+    }
+
+    .urlbarView-row:hover {
+        background-color: #3c3c3c !important;
+    }
+
+    #identity-box, .urlbarView-row[label], .search-one-offs {
+        display: none !important;
+    }
+}
+
+/*********************
+     SIDEBAR STYLE
+**********************/
+
+#browser {
+    background: var(--sidebar-background) !important;
+}
+
+#sidebar-header, findbar, #sidebar-box {
+    background: var(--secondary-background) !important;
+}
+
+#sidebar-header, findbar, #sidebar-splitter {
+    border: none !important;
+}
+
+#sidebar-splitter {
+    width: 2px !important;
+}
+
+/*********************
+ VISIBLE TOOLBOX STYLE
+**********************/
+
+@media (-moz-bool-pref: "custom.sidebar.visible") {
+    #navigator-toolbox {
+        height: 100vh !important;
+        border-radius: 0px !important;
+    }
+
+    #browser, #customization-container {
+        left: var(--sidebar-width) !important;
+        width: calc(100% - var(--sidebar-width)) !important;
+    }
+
+    #customization-palette-container {
+        width: 100% !important;
+    }
+
+    @media (-moz-bool-pref: "custom.sidebar.gaps") {
+        #tabbrowser-tabbox,
+        #sidebar-box {
+            overflow: hidden !important;
+            border-radius: var(--gap-radius) !important;
+        }
+
+        splitter#sidebar-splitter {
+            width: var(--gap-size) !important;
+            background-color: transparent !important;
+        }
+
+        #browser {
+            left: var(--sidebar-width) !important;
+            width: calc(100% - var(--sidebar-width)) !important;
+
+            box-sizing: border-box !important;
+            border: transparent var(--gap-size) solid !important;
+            border-left: none !important;
+        }
+    }
+}
+
+/*********************
+ COMPACT TOOLBOX STYLE
+**********************/
+
+@media not (-moz-bool-pref: "custom.sidebar.visible") {
+    #navigator-toolbox {
+        height: 75vh !important;
+        margin-top: 13vh !important;
+
+        left: calc(
+            -1 * var(--sidebar-width) - var(--compact-margin)
+        ) !important;
+        transition: left 0.15s ease !important;
+
+        margin-left: var(--compact-margin) !important;
+        border: 1px #373839 solid !important;
+        border-radius: 6px !important;
+
+        &:hover,
+        &:has(#urlbar[focused=""]) {
+            left: 0px !important;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            height: 100%;
+            position: absolute;
+        }
+
+        &::before {
+            width: calc(2 * var(--sidebar-width));
+            left: calc(-2 * var(--sidebar-width));
+        }
+
+        &::after {
+            width: var(--compact-detection-width);
+            left: calc(var(--sidebar-width) - 1px);
+        }
+
+        #nav-bar #urlbar-container {
+            width: calc(var(--sidebar-width) - 2 * 7px) !important;
+        }
+    }
+}

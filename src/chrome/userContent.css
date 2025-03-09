@@ -1,0 +1,14 @@
+@import "variables.css";
+
+:root {
+    --in-content-page-background: var(
+        --secondary-background,
+        inherit
+    ) !important;
+}
+
+@-moz-document url-prefix(about:home), url-prefix(about:newtab), url-prefix(about:blank) {
+    body {
+        background-color: var(--secondary-background) !important;
+    }
+}

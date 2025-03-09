@@ -8,7 +8,7 @@ Customizable sidebar for Firefox-based browser:
 
 To install the theme, execute the following command:
 ```bash
-bash <(curl -s -o- https://raw.githubusercontent.com/mrspaar/firefox-sidebar/master/install.sh)
+bash <(curl -s -o- https://raw.githubusercontent.com/MrSpaar/Firefox-Sidebar/refs/heads/main/install.sh)
 ```
 
 ## Configuration

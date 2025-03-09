@@ -14,8 +14,11 @@ bash <(curl -s -o- https://raw.githubusercontent.com/MrSpaar/Firefox-Sidebar/ref
 ## Configuration
 
 There are two parameters in `about:config`:
-- `custom.sidebar.gaps` (`True`/`False`): have gaps around the web page or not
-- `custom.sidebar.compact` (`True`/`False`): switch between always visible and compact mode
+
+| Property                 | Value   | Description                                    |
+|------------------------- | ------- |----------------------------------------------- |
+| `custom.sidebar.visible` | Boolean | Switch between always visible and compact mode |
+| `custom.sidebar.gaps`    | Boolean | Have gaps around the web page or not           |
 
 > [!TIP]
 > To change background colors, gaps or element sizes, you can modify [`variables.css`](./src/chrome/variables.css)

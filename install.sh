@@ -8,9 +8,6 @@ base_paths=(
     ~/.librewolf
     ~/.var/app/io.gitlab.librewolf-community/.librewolf
 
-    ~/.zen
-    ~/.var/app/app.zen_browser.zen/.zen
-
     ~/.floorp
     ~/.var/app/one.ablaze.floorp/.floorp
 )
@@ -18,8 +15,10 @@ base_paths=(
 for path in "${base_paths[@]}"; do
     [[ ! -d "$path" ]] && continue
 
-    profile=("$(cat $path/profiles.ini | grep "^Path=" | cut -c 6-)")
-    found_paths+=("$path/$profile")
+    while IFS= read -r line; do
+        profile=$(echo "$line" | cut -c 6-)
+        found_paths+=("$path/$profile")
+    done < <(grep "^Path=" "$path/profiles.ini")
 done
 
 if [ "${#found_paths[@]}" -eq 0 ]; then
@@ -43,6 +42,6 @@ if [ "$index" -lt 0 ] || [ "$index" -gt "$((${#found_paths[@]} - 1))" ]; then
 fi
 
 git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar
-mv /tmp/firefox-sidebar/src "${found_paths[$index]}"
+cp -TRv /tmp/firefox-sidebar/src "${found_paths[$index]}"
 
 echo "Theme installed for profile ${found_paths[$index]}"

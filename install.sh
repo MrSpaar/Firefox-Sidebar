@@ -41,7 +41,9 @@ if [ "$index" -lt 0 ] || [ "$index" -gt "$((${#found_paths[@]} - 1))" ]; then
     exit 1
 fi
 
-git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar
-cp -TRv /tmp/firefox-sidebar/src "${found_paths[$index]}"
+if [ ! -d "/tmp/firefox-sidebar"]; then
+    git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar
+fi
 
+cp -TRv /tmp/firefox-sidebar/src "${found_paths[$index]}"
 echo "Theme installed for profile ${found_paths[$index]}"

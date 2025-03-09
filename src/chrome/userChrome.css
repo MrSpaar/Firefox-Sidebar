@@ -14,7 +14,6 @@
 #tabs-newtab-button,
 #wrapper-new-tab-button,
 #nav-bar-overflow-button,
-#customization-panel-container,
 #urlbar-container #star-button-box,
 #urlbar-container #page-action-buttons > * {
     display: none !important;
@@ -30,8 +29,7 @@
     border: none !important;
 }
 
-#nav-bar,
-#TabsToolbar {
+#nav-bar, #TabsToolbar, #PersonalToolbar {
     background-color: transparent !important;
 }
 
@@ -270,6 +268,19 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
 }
 
 /*********************
+CUSTOMIZATION MENU FIX
+*********************/
+
+#customization-container {
+    height: 100% !important;
+    position: absolute !important;
+}
+
+#customization-panel-container {
+    display: none !important;
+}
+
+/*********************
  VISIBLE TOOLBOX STYLE
 **********************/
 
@@ -354,5 +365,14 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         #nav-bar #urlbar-container {
             width: calc(var(--sidebar-width) - 2 * 7px) !important;
         }
+    }
+
+    :not(:has(#customization-container[hidden])) #navigator-toolbox {
+        left: 0px !important;
+    }
+
+    #customization-palette {
+        margin-top: 20vh !important;
+        margin-left: var(--sidebar-width) !important;
     }
 }

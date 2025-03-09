@@ -41,7 +41,7 @@ if [ "$index" -lt 0 ] || [ "$index" -gt "$((${#found_paths[@]} - 1))" ]; then
     exit 1
 fi
 
-if [ ! -d "/tmp/firefox-sidebar"]; then
+if [ ! -d "/tmp/firefox-sidebar" ]; then
     git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar
 fi
 

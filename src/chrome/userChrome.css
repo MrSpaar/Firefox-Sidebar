@@ -1,7 +1,7 @@
 @import "variables.css";
 
 /*********************
-     TOOLBOX STYLE
+     DEFAULT STYLE
 **********************/
 
 #back-button,
@@ -21,6 +21,8 @@
 
 #navigator-toolbox {
     z-index: 99 !important;
+    height: 100% !important;
+    border-radius: 0px !important;
     width: var(--sidebar-width) !important;
     background-color: var(--sidebar-background) !important;
 }
@@ -192,7 +194,39 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     height: 100vh !important;
     width: 100vw !important;
     position: absolute !important;
+    background: var(--sidebar-background) !important;
 }
+
+#browser, #customization-container {
+    left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+}
+
+#sidebar-header, findbar, #sidebar-box, #customization-container {
+    background: var(--secondary-background) !important;
+}
+
+#sidebar-header, findbar, #sidebar-splitter {
+    border: none !important;
+}
+
+#sidebar-splitter {
+    width: 2px !important;
+}
+
+#customization-palette-container {
+    width: 100% !important;
+}
+
+#customization-container {
+    height: 100% !important;
+    position: absolute !important;
+}
+
+#customization-panel-container {
+    display: none !important;
+}
+
 
 /*********************
  FLOATING URLBAR STYLE
@@ -247,78 +281,35 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     }
 }
 
+
 /*********************
-     SIDEBAR STYLE
+      GAPS STYLE
 **********************/
 
-#browser {
-    background: var(--sidebar-background) !important;
-}
-
-#sidebar-header, findbar, #sidebar-box {
-    background: var(--secondary-background) !important;
-}
-
-#sidebar-header, findbar, #sidebar-splitter {
-    border: none !important;
-}
-
-#sidebar-splitter {
-    width: 2px !important;
-}
-
-/*********************
-CUSTOMIZATION MENU FIX
-*********************/
-
-#customization-container {
-    height: 100% !important;
-    position: absolute !important;
-}
-
-#customization-panel-container {
-    display: none !important;
-}
-
-/*********************
- VISIBLE TOOLBOX STYLE
-**********************/
-
-@media (-moz-bool-pref: "custom.sidebar.visible") {
-    #navigator-toolbox {
-        height: 100vh !important;
-        border-radius: 0px !important;
+@media (-moz-bool-pref: "custom.sidebar.gaps") {
+    #tabbrowser-tabbox,
+    #sidebar-box {
+        overflow: hidden !important;
+        border-radius: var(--gap-radius) !important;
     }
 
-    #browser, #customization-container {
+    splitter#sidebar-splitter {
+        width: var(--gap-size) !important;
+        background-color: transparent !important;
+    }
+
+    #browser {
         left: var(--sidebar-width) !important;
         width: calc(100% - var(--sidebar-width)) !important;
+
+        box-sizing: border-box !important;
+        border: transparent var(--gap-size) solid !important;
     }
+}
 
-    #customization-palette-container {
-        width: 100% !important;
-    }
-
-    @media (-moz-bool-pref: "custom.sidebar.gaps") {
-        #tabbrowser-tabbox,
-        #sidebar-box {
-            overflow: hidden !important;
-            border-radius: var(--gap-radius) !important;
-        }
-
-        splitter#sidebar-splitter {
-            width: var(--gap-size) !important;
-            background-color: transparent !important;
-        }
-
-        #browser {
-            left: var(--sidebar-width) !important;
-            width: calc(100% - var(--sidebar-width)) !important;
-
-            box-sizing: border-box !important;
-            border: transparent var(--gap-size) solid !important;
-            border-left: none !important;
-        }
+@media not (-moz-bool-pref: "custom.sidebar.compact") {
+    #browser {
+        border-left: none !important;
     }
 }
 
@@ -326,7 +317,7 @@ CUSTOMIZATION MENU FIX
  COMPACT TOOLBOX STYLE
 **********************/
 
-@media not (-moz-bool-pref: "custom.sidebar.visible") {
+@media (-moz-bool-pref: "custom.sidebar.compact") {
     #navigator-toolbox {
         height: 75vh !important;
         margin-top: 13vh !important;
@@ -365,6 +356,11 @@ CUSTOMIZATION MENU FIX
         #nav-bar #urlbar-container {
             width: calc(var(--sidebar-width) - 2 * 7px) !important;
         }
+    }
+
+    #browser, #customization-container {
+        left: 0 !important;
+        width: 100% !important;
     }
 
     :not(:has(#customization-container[hidden])) #navigator-toolbox {

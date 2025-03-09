@@ -43,6 +43,8 @@ fi
 
 if [ ! -d "/tmp/firefox-sidebar" ]; then
     git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar
+else
+    git -C /tmp/firefox-sidebar pull
 fi
 
 cp -TRv /tmp/firefox-sidebar/src "${found_paths[$index]}"

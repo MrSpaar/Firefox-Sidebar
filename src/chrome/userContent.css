@@ -11,4 +11,8 @@
     body {
         background-color: var(--secondary-background) !important;
     }
+
+    .context-menu, .search-handoff-button, .customize-menu, .close-button-wrapper, .location-input-wrapper, input  {
+        background-color: var(--sidebar-background) !important;
+    }
 }

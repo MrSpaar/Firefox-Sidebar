@@ -1,19 +1,14 @@
 @import "variables.css";
 
 /*********************
-     DEFAULT STYLE
+     TOOLBOX STYLE
 **********************/
 
-#back-button,
-#forward-button,
-#identity-icon-label,
-#urlbar-go-button,
 .titlebar-spacer,
 .titlebar-buttonbox-container,
-#alltabs-button,
-#tabs-newtab-button,
-#wrapper-new-tab-button,
 #nav-bar-overflow-button,
+#urlbar-go-button,
+#identity-icon-label,
 #urlbar-container #star-button-box,
 #urlbar-container #page-action-buttons > * {
     display: none !important;
@@ -36,60 +31,35 @@
 }
 
 #nav-bar {
-    position: initial !important;
     padding: var(--gap-size) !important;
-    padding-right: 1px !important;
 
-    toolbarbutton {
-        padding: 0 !important;
-    }
+    #nav-bar-customization-target {
+        flex-wrap: wrap !important;
+        row-gap: var(--gap-size) !important;
 
-    #downloads-button,
-    #unified-extensions-button,
-    #PanelUI-menu-button,
-    #preferences-button {
-        z-index: 99 !important;
-        position: absolute !important;
-    }
-
-    #unified-extensions-button {
-        top: var(--gap-size) !important;
-        left: 38px !important;
-    }
-
-    .unified-extensions-item {
-        width: 32px !important;
-        height: 32px !important;
-
-        &:last-child {
-            width: 38px !important;
+        > *:first-child, toolbarbutton {
+            padding: 0 !important;
         }
     }
 
     #PanelUI-menu-button {
-        left: 37px;
-        bottom: var(--gap-size);
-    }
-
-    #preferences-button {
-        left: var(--gap-size);
-        bottom: var(--gap-size);
-    }
-
-    #downloads-button {
-        bottom: var(--gap-size);
-        left: calc(168px - var(--gap-size));
+        z-index: 100 !important;
+        position: fixed !important;
+        bottom: var(--gap-size) !important;
+        left: calc(var(--sidebar-width) - 28px - 2*var(--gap-size))
     }
 }
 
+/*********************
+  CLOSED URLBAR STYLE
+**********************/
+
 #urlbar-container {
+    order: 99 !important;
+    margin: 0px !important;
     height: 32px !important;
     min-height: 0px !important;
     width: calc(var(--sidebar-width) - 2*var(--gap-size)) !important;
-
-    position: absolute !important;
-    left: 1px !important;
-    top: calc(32px + 2*var(--gap-size)) !important;
 
     &, #urlbar, #urlbar-background {
         border-radius: 6px !important;
@@ -150,17 +120,26 @@
     }
 }
 
+/*********************
+  VERTICAL TABS STYLE
+**********************/
+
 #TabsToolbar {
     --tab-min-height: 32px !important;
 
-    top: calc(64px + 3*var(--gap-size)) !important;
-    left: var(--gap-size) !important;
-    width: calc(100% - 2*var(--gap-size)) !important;
-    position: absolute !important;
+    order: 99 !important;
+    position: relative !important;
+    margin: 0 0 0 var(--gap-size) !important;
 
-    &, #TabsToolbar-customization-target,
-    #TabsToolbar-customization-target #tabbrowser-tabs {
+    #TabsToolbar-customization-target {
         height: 100% !important;
+        flex-wrap: wrap !important;
+
+        #tabbrowser-tabs {
+            flex: unset !important;
+            height: calc(100% - 32px - 2*var(--gap-size)) !important;
+            width: calc(var(--sidebar-width) - 2*var(--gap-size)) !important;
+        }
     }
 
     .tabbrowser-tab {
@@ -181,6 +160,11 @@
             background-color: var(--tab-background) !important;
         }
     }
+
+    .toolbarbutton-1, .unified-extensions-item {
+        padding: 0px !important;
+        height: fit-content !important;
+    }
 }
 
 scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
@@ -190,41 +174,89 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     flex-direction: column !important;
 }
 
-#browser {
-    height: 100vh !important;
-    width: 100vw !important;
-    position: absolute !important;
-    background: var(--sidebar-background) !important;
+/*********************
+ EXTENSION PANEL STYLE
+**********************/
+
+#unified-extensions-view {
+    width: var(--menu-panel-width) !important;
+    background-color: var(--sidebar-background) !important;
+
+    .panel-header, toolbarseparator {
+        display: none !important;
+    }
+
+    .unified-extensions-item-action-button:hover,
+    #unified-extensions-manage-extensions:hover {
+        background-color: var(--tab-background) !important;
+    }
+
+    .panel-subview-body {
+        border-bottom: var(--border) !important;
+    }
+
+    #unified-extensions-area > toolbaritem,
+    #unified-extensions-manage-extensions {
+        margin: 4px !important;
+    }
+
+    .unified-extensions-item-row-wrapper {
+        position: relative !important;
+    }
+
+    .unified-extensions-item-message-deck {
+        width: 230px !important;
+    }
+
+    .unified-extensions-item-menu-button {
+        position: absolute !important;
+        right: 6px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
 }
 
-#browser, #customization-container {
-    left: var(--sidebar-width) !important;
-    width: calc(100% - var(--sidebar-width)) !important;
-}
+/*********************
+ DOWNLOAD PANEL STYLE
+**********************/
 
-#sidebar-header, findbar, #sidebar-box, #customization-container, #tabbrowser-tabpanels {
-    background: var(--secondary-background) !important;
-}
+#downloadsPanel-multiView {
+    width: var(--menu-panel-width) !important;
+    background-color: var(--sidebar-background) !important;
 
-#sidebar-header, findbar, #sidebar-splitter {
-    border: none !important;
-}
+    toolbarseparator {
+        display: none !important;
+    }
 
-#sidebar-splitter {
-    width: 2px !important;
-}
+    #downloadsPanel-mainView {
+        padding: 0 !important;
+    }
 
-#customization-palette-container {
-    width: 100% !important;
-}
+    #emptyDownloads {
+        padding: 10px 0px 10px 13px !important;
+    }
 
-#customization-container {
-    height: 100% !important;
-    position: absolute !important;
-}
+    #downloadsFooterButtons {
+        border-top: var(--border) !important;
+    }
 
-#customization-panel-container {
-    display: none !important;
+    #downloadsListBox {
+        padding: 4px !important;
+
+        richlistitem {
+            width: calc(var(--menu-panel-width) - 8px) !important;
+        }
+    }
+
+    #downloadsHistory {
+        margin: 4px !important;
+        width: calc(var(--menu-panel-width) - 8px) !important;
+    }
+
+    .hoveringMainArea:hover, .subviewbutton:hover, .downloadButton:hover {
+        border: none !important;
+        background-color: var(--tab-background) !important;
+    }
 }
 
 
@@ -233,7 +265,6 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
 **********************/
 
 #urlbar-container:has(#urlbar[breakout-extend="true"]) {
-    --border: 1px #373839 solid;
     background-color: var(--tab-background) !important;
 
     #urlbar, .urlbarView, #urlbar-results {
@@ -262,10 +293,18 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         background-color: var(--sidebar-background) !important;
     }
 
+    .urlbar-input-box {
+        margin-left: 6px !important;
+    }
+
     .urlbarView {
         width: 100% !important;
         padding: 4px 6px !important;
         border-top: var(--border) !important;
+    }
+
+    .urlbarView-row[has-url]not(:last-child) {
+        margin-bottom: 4px !important;
     }
 
     .urlbarView-row[selected] {
@@ -371,4 +410,66 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         margin-top: 20vh !important;
         margin-left: var(--sidebar-width) !important;
     }
+}
+
+/*********************
+     BROWSER STYLE
+**********************/
+
+#browser {
+    height: 100vh !important;
+    width: 100vw !important;
+    position: absolute !important;
+    background: var(--sidebar-background) !important;
+}
+
+#browser, #customization-container {
+    left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+}
+
+#sidebar-header, findbar, #sidebar-box, #customization-container, #tabbrowser-tabpanels {
+    background: var(--secondary-background) !important;
+}
+
+#sidebar-header, findbar, #sidebar-splitter {
+    border: none !important;
+}
+
+#sidebar-splitter {
+    width: 2px !important;
+}
+
+#nav-bar[customizing] #urlbar-container,
+#customization-container,
+#wrapper-urlbar-container {
+    position: absolute !important;
+}
+
+#nav-bar[customizing] {
+    #urlbar-container {
+        margin: 0px !important;
+        left: 0px !important;
+        top: 34px !important;
+    }
+
+    toolbarpaletteitem:first-child toolbaritem {
+        padding: 0 !important;;
+    }
+}
+
+#TabsToolbar[customizing] {
+    margin-top: 38px !important;
+}
+
+#customization-container, #wrapper-urlbar-container {
+    height: 100% !important;
+}
+
+#customization-palette-container {
+    width: 100% !important;
+}
+
+#customization-panel-container {
+    display: none !important;
 }

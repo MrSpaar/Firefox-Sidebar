@@ -299,7 +299,7 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         padding: 4px 0 !important;
     }
 
-    .PanelUI-subView {
+    :not(#appMenu-mainView).PanelUI-subView {
         padding-bottom: 4px !important;
     }
 

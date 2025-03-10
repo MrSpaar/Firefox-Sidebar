@@ -303,17 +303,41 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         padding-bottom: 4px !important;
     }
 
+    toolbarbutton, toolbaritem {
+        margin: 0 4px !important;
+    }
+
     toolbarseparator {
         margin: 4px 0px !important;
-        border-top: var(--border) !important;
     }
 
     toolbarseparator ~ .panel-subview-body {
         padding-top: 0px !important;
     }
+}
 
-    toolbarbutton, toolbaritem {
+/*********************
+  CONTEXT MENU STYLE
+**********************/
+
+.menupopup-arrowscrollbox {
+    background-color: var(--sidebar-background) !important;
+    padding: 4px 0px !important;
+}
+
+#mainPopupSet menupopup {
+    margin: 0px !important;
+
+    menuseparator::before {
+        border-top: var(--border) !important;
+    }
+
+    menuitem, menu {
         margin: 0 4px !important;
+
+        &:hover {
+            background-color: var(--tab-background) !important;
+        }
     }
 }
 
@@ -376,7 +400,6 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         display: none !important;
     }
 }
-
 
 /*********************
       GAPS STYLE

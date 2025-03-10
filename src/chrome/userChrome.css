@@ -292,7 +292,30 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
    BURGER MENU STYLE
 **********************/
 
+#appMenu-multiView {
+    background-color: var(--sidebar-background) !important;
 
+    .panel-subview-body {
+        padding: 4px 0 !important;
+    }
+
+    .PanelUI-subView {
+        padding-bottom: 4px !important;
+    }
+
+    toolbarseparator {
+        margin: 4px 0px !important;
+        border-top: var(--border) !important;
+    }
+
+    toolbarseparator ~ .panel-subview-body {
+        padding-top: 0px !important;
+    }
+
+    toolbarbutton, toolbaritem {
+        margin: 0 4px !important;
+    }
+}
 
 /*********************
  FLOATING URLBAR STYLE

@@ -493,6 +493,16 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     border: none !important;
 }
 
+#sidebar-header {
+    position: relative !important;
+
+    #sidebar-switcher-target {
+        top: 6px !important;
+        left: 8px !important;
+        position: absolute !important;
+    }
+}
+
 #sidebar-splitter {
     width: 2px !important;
 }

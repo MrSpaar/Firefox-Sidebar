@@ -14,6 +14,11 @@
     display: none !important;
 }
 
+toolbarbutton {
+    overflow: hidden !important;
+    border-radius: 6px !important;
+}
+
 #navigator-toolbox {
     z-index: 99 !important;
     height: 100% !important;
@@ -43,10 +48,30 @@
     }
 
     #PanelUI-menu-button {
+        padding: 0px !important;
+        height: fit-content !important;
+    }
+}
+
+@media (-moz-bool-pref: "custom.sidebar.bottom-burger") {
+    #nav-bar #PanelUI-menu-button {
         z-index: 100 !important;
         position: fixed !important;
         bottom: var(--gap-size) !important;
         left: calc(var(--sidebar-width) - 28px - 2*var(--gap-size))
+    }
+}
+
+@media (-moz-bool-pref: "custom.sidebar.bottom-extensions") {
+    #unified-extensions-button {
+        z-index: 100 !important;
+        position: fixed !important;
+        bottom: var(--gap-size) !important;
+        left: var(--gap-size) !important;
+    }
+
+    #TabsToolbar #TabsToolbar-customization-target > *:nth-child(2) {
+        margin-inline: 31px 0 !important;
     }
 }
 
@@ -165,6 +190,10 @@
         padding: 0px !important;
         height: fit-content !important;
     }
+
+    #TabsToolbar-customization-target > *:last-child {
+        margin-right: var(--gap-size) !important;
+    }
 }
 
 scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
@@ -258,6 +287,11 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         background-color: var(--tab-background) !important;
     }
 }
+
+/*********************
+   BURGER MENU STYLE
+**********************/
+
 
 
 /*********************

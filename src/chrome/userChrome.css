@@ -322,12 +322,30 @@ panel {
     padding: 4px 0px !important;
 }
 
-menupopup {
+menupopup:not(.popup-notification-panel) {
     margin: 0px !important;
 
     menuitem, menu {
         margin: 0 4px !important;
     }
+}
+
+/*********************
+       POPUP FIX
+**********************/
+
+#notification-popup:has(#addon-webext-permissions-notification) {
+    margin-right: -452px !important;
+    margin-top: -280px !important;
+}
+
+#notification-popup:has(#addon-install-blocked-notification) {
+    margin-top: -230px !important;
+    margin-right: -430px !important;
+}
+
+#appMenu-notification-popup {
+    margin-right: -450px !important;
 }
 
 /*********************

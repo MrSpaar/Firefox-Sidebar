@@ -11,6 +11,10 @@ To install the theme, execute the following command (it will override existing f
 bash <(curl -s -o- https://raw.githubusercontent.com/MrSpaar/Firefox-Sidebar/refs/heads/main/install.sh)
 ```
 
+> [!WARNING]
+> By default, button placement is incompatible with the vertical sidebar layout, you'll need to
+> right click -> customize toolbar and modify it as you wish.
+
 ## Configuration
 
 You can modify the following preferences in `about:config`:

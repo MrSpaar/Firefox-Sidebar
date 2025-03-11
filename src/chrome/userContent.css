@@ -5,6 +5,8 @@
         --secondary-background,
         inherit
     ) !important;
+
+    --newtab-background-color-secondary: var(--sidebar-background) !important;
 }
 
 @-moz-document url-prefix(about:newtab), url-prefix(about:blank) {

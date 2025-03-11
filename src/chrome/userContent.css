@@ -7,12 +7,8 @@
     ) !important;
 }
 
-@-moz-document url-prefix(about:home), url-prefix(about:newtab), url-prefix(about:blank) {
+@-moz-document url-prefix(about:newtab), url-prefix(about:blank) {
     body {
         background-color: var(--secondary-background) !important;
-    }
-
-    .context-menu, .search-handoff-button, .customize-menu, .close-button-wrapper, .location-input-wrapper, input  {
-        background-color: var(--sidebar-background) !important;
     }
 }

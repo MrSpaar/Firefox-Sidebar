@@ -1,6 +1,44 @@
 @import "variables.css";
 
 /*********************
+    THEME OVERRIDE
+**********************/
+
+:root {
+    --tab-selected-bgcolor: var(--tab-background) !important;
+    --tab-hover-background-color: var(--tab-background) !important;
+
+    --toolbar-bgcolor: var(--sidebar-background) !important;
+    --toolbox-bgcolor: var(--sidebar-background) !important;
+    --toolbox-bgcolor-inactive: var(--sidebar-background) !important;
+    --toolbar-field-background-color: var(--tab-background) !important;
+    --toolbar-field-focus-background-color: var(--sidebar-background) !important;
+
+    --panel-border-color: var(--border-color) !important;
+    --panel-separator-color: var(--border-color) !important;
+    --panel-item-hover-bgcolor: var(--tab-background) !important;
+
+    --urlbarView-hover-background: var(--tab-background) !important;
+    --urlbarView-highlight-background: var(--tab-background) !important;
+
+    --toolbarbutton-hover-background: var(--tab-background) !important;
+    --tabpanel-background-color: var(--secondary-background) !important;
+    --sidebar-background-color: var(--secondary-background) !important;
+}
+
+menupopup, panel {
+    --panel-background: var(--sidebar-background) !important;
+}
+
+#urlbar, #urlbar-background, #TabsToolbar .tab-background,
+toolbarbutton, toolbaritem, button, richlistitem {
+    overflow: hidden !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+
+/*********************
      TOOLBOX STYLE
 **********************/
 
@@ -8,31 +46,20 @@
 .titlebar-buttonbox-container,
 #nav-bar-overflow-button,
 #urlbar-go-button,
+#customization-panel-container,
 #identity-icon-label,
 #urlbar-container #star-button-box,
 #urlbar-container #page-action-buttons > * {
     display: none !important;
 }
 
-toolbarbutton {
-    overflow: hidden !important;
-    border-radius: 6px !important;
-}
-
 #navigator-toolbox {
-    z-index: 99 !important;
     height: 100% !important;
-    border-radius: 0px !important;
     width: var(--sidebar-width) !important;
-    background-color: var(--sidebar-background) !important;
 }
 
 #navigator-toolbox, #nav-bar {
     border: none !important;
-}
-
-#nav-bar, #TabsToolbar, #PersonalToolbar {
-    background-color: transparent !important;
 }
 
 #nav-bar {
@@ -48,17 +75,8 @@ toolbarbutton {
     }
 
     #PanelUI-menu-button {
-        padding: 0px !important;
-        height: fit-content !important;
-    }
-}
-
-@media (-moz-bool-pref: "custom.sidebar.bottom-burger") {
-    #nav-bar #PanelUI-menu-button {
-        z-index: 100 !important;
-        position: fixed !important;
-        bottom: var(--gap-size) !important;
-        left: calc(var(--sidebar-width) - 28px - 2*var(--gap-size))
+        right: -2px !important;
+        position: absolute !important;
     }
 }
 
@@ -66,12 +84,12 @@ toolbarbutton {
     #unified-extensions-button {
         z-index: 100 !important;
         position: fixed !important;
-        bottom: var(--gap-size) !important;
         left: var(--gap-size) !important;
+        bottom: var(--gap-size) !important;
     }
 
     #TabsToolbar #TabsToolbar-customization-target > *:nth-child(2) {
-        margin-inline: 31px 0 !important;
+        margin-inline: 34px 0 !important;
     }
 }
 
@@ -80,21 +98,9 @@ toolbarbutton {
 **********************/
 
 #urlbar-container {
-    order: 99 !important;
     margin: 0px !important;
     height: 32px !important;
-    min-height: 0px !important;
     width: calc(var(--sidebar-width) - 2*var(--gap-size)) !important;
-
-    &, #urlbar, #urlbar-background {
-        border-radius: 6px !important;
-        box-shadow: none !important;
-        background-color: var(--tab-background) !important;
-    }
-
-    * {
-        outline: none !important;
-    }
 
     #urlbar:hover
     #page-action-buttons
@@ -134,14 +140,53 @@ toolbarbutton {
         margin-right: 0px !important;
 
         #identity-icon-box {
-
             border-radius: 50% !important;
-            background-color: transparent !important;
-
-            &:hover {
-                background-color: var(--sidebar-background) !important;
-            }
         }
+    }
+}
+
+/*********************
+ FLOATING URLBAR STYLE
+**********************/
+
+#urlbar-container:has(#urlbar[breakout-extend="true"]) {
+    #urlbar, .urlbarView, #urlbar-results {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    * {
+        border: none !important;
+    }
+
+    #urlbar {
+        position: fixed !important;
+        width: var(--floating-urlbar-width) !important;
+        top: var(--urlbar-top-position) !important;
+        left: calc(
+            50vw - var(--floating-urlbar-width)/2 + var(--sidebar-width)/2
+        ) !important;
+        border-radius: var(--gap-radius) !important;
+        border: 1px var(--border-color) solid !important;
+    }
+
+    .urlbar-input-box {
+        margin-left: 6px !important;
+    }
+
+    .urlbarView {
+        gap: 4px !important;
+        width: 100% !important;
+        padding: 4px 6px !important;
+        border-top: 1px var(--border-color) solid !important;
+    }
+
+    .urlbarView-row:not(:last-child) {
+        margin-bottom: 4px !important;
+    }
+
+    #identity-box, .urlbarView-row[label], .search-one-offs {
+        display: none !important;
     }
 }
 
@@ -167,23 +212,17 @@ toolbarbutton {
         }
     }
 
-    .tabbrowser-tab {
+    .tabbrowser-tab, .tab-background {
         padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .tabbrowser-tab {
         max-height: var(--tab-min-height) !important;
     }
 
     .tab-stack {
         margin-bottom: var(--gap-size) !important;
-    }
-
-    .tab-background {
-        margin: 0 !important;
-        border-radius: 6px !important;
-        box-shadow: none !important;
-
-        &[selected] {
-            background-color: var(--tab-background) !important;
-        }
     }
 
     .toolbarbutton-1, .unified-extensions-item {
@@ -196,37 +235,46 @@ toolbarbutton {
     }
 }
 
-scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
-    > * {
-    overflow: hidden scroll;
+scrollbox[part="scrollbox"][orient="horizontal"][smoothscroll="true"] > * {
     gap: 4px !important;
+    overflow: hidden scroll;
     flex-direction: column !important;
 }
 
 /*********************
- EXTENSION PANEL STYLE
+     PANEL TWEAKS
 **********************/
 
-#unified-extensions-view {
-    width: var(--menu-panel-width) !important;
-    background-color: var(--sidebar-background) !important;
+panel {
+    .panel-subview-body {
+        padding: 0px !important;
+    }
 
-    .panel-header, toolbarseparator {
+    panelview {
+        padding: 4px 0 !important;
+    }
+
+    toolbarbutton, toolbaritem, button, richlistitem {
+        margin: 0 4px !important;
+    }
+
+    toolbarseparator {
+        margin: 4px 0px !important;
+    }
+}
+
+#unified-extensions-view,
+#downloadsPanel-multiView {
+    width: var(--menu-panel-width) !important;
+}
+
+#unified-extensions-view {
+    .panel-header, .panel-header + toolbarseparator {
         display: none !important;
     }
 
-    .unified-extensions-item-action-button:hover,
-    #unified-extensions-manage-extensions:hover {
-        background-color: var(--tab-background) !important;
-    }
-
-    .panel-subview-body {
-        border-bottom: var(--border) !important;
-    }
-
-    #unified-extensions-area > toolbaritem,
-    #unified-extensions-manage-extensions {
-        margin: 4px !important;
+    toolbaritem {
+        margin: 0 !important;
     }
 
     .unified-extensions-item-row-wrapper {
@@ -245,75 +293,9 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     }
 }
 
-/*********************
- DOWNLOAD PANEL STYLE
-**********************/
-
-#downloadsPanel-multiView {
-    width: var(--menu-panel-width) !important;
-    background-color: var(--sidebar-background) !important;
-
-    toolbarseparator {
-        display: none !important;
-    }
-
-    #downloadsPanel-mainView {
-        padding: 0 !important;
-    }
-
-    #emptyDownloads {
-        padding: 10px 0px 10px 13px !important;
-    }
-
-    #downloadsFooterButtons {
-        border-top: var(--border) !important;
-    }
-
-    #downloadsListBox {
-        padding: 4px !important;
-
-        richlistitem {
-            width: calc(var(--menu-panel-width) - 8px) !important;
-        }
-    }
-
-    #downloadsHistory {
-        margin: 4px !important;
+#downloadsPanel-mainView {
+    richlistitem, #downloadsHistory {
         width: calc(var(--menu-panel-width) - 8px) !important;
-    }
-
-    .hoveringMainArea:hover, .subviewbutton:hover, .downloadButton:hover {
-        border: none !important;
-        background-color: var(--tab-background) !important;
-    }
-}
-
-/*********************
-   BURGER MENU STYLE
-**********************/
-
-#appMenu-multiView {
-    background-color: var(--sidebar-background) !important;
-
-    .panel-subview-body {
-        padding: 4px 0 !important;
-    }
-
-    :not(#appMenu-mainView).PanelUI-subView {
-        padding-bottom: 4px !important;
-    }
-
-    toolbarbutton, toolbaritem {
-        margin: 0 4px !important;
-    }
-
-    toolbarseparator {
-        margin: 4px 0px !important;
-        border-top: var(--border) !important;
-    }
-
-    toolbarseparator ~ .panel-subview-body {
-        padding-top: 0px !important;
     }
 }
 
@@ -322,83 +304,14 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
 **********************/
 
 .menupopup-arrowscrollbox {
-    background-color: var(--sidebar-background) !important;
     padding: 4px 0px !important;
 }
 
-#mainPopupSet menupopup {
+menupopup {
     margin: 0px !important;
-
-    menuseparator::before {
-        border-top: var(--border) !important;
-    }
 
     menuitem, menu {
         margin: 0 4px !important;
-
-        &:hover {
-            background-color: var(--tab-background) !important;
-        }
-    }
-}
-
-/*********************
- FLOATING URLBAR STYLE
-**********************/
-
-#urlbar-container:has(#urlbar[breakout-extend="true"]) {
-    background-color: var(--tab-background) !important;
-
-    #urlbar, .urlbarView, #urlbar-results {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    * {
-        border: none !important;
-    }
-
-    #urlbar {
-        position: fixed !important;
-        width: var(--floating-urlbar-width) !important;
-        top: var(--urlbar-top-position) !important;
-        left: calc(
-            50vw - var(--floating-urlbar-width)/2 + var(--sidebar-width)/2
-        ) !important;
-
-        overflow: hidden !important;
-        border: var(--border) !important;
-        border-radius: var(--gap-radius) !important;
-    }
-
-    #urlbar-background {
-        background-color: var(--sidebar-background) !important;
-    }
-
-    .urlbar-input-box {
-        margin-left: 6px !important;
-    }
-
-    .urlbarView {
-        width: 100% !important;
-        padding: 4px 6px !important;
-        border-top: var(--border) !important;
-    }
-
-    .urlbarView-row[has-url]not(:last-child) {
-        margin-bottom: 4px !important;
-    }
-
-    .urlbarView-row[selected] {
-        background-color: var(--tab-background) !important;
-    }
-
-    .urlbarView-row:hover {
-        background-color: #3c3c3c !important;
-    }
-
-    #identity-box, .urlbarView-row[label], .search-one-offs {
-        display: none !important;
     }
 }
 
@@ -407,15 +320,9 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
 **********************/
 
 @media (-moz-bool-pref: "custom.sidebar.gaps") {
-    #tabbrowser-tabbox,
-    #sidebar-box {
+    #tabbrowser-tabbox, #sidebar-box {
         overflow: hidden !important;
         border-radius: var(--gap-radius) !important;
-    }
-
-    splitter#sidebar-splitter {
-        width: var(--gap-size) !important;
-        background-color: transparent !important;
     }
 
     #browser {
@@ -423,7 +330,7 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         width: calc(100% - var(--sidebar-width)) !important;
 
         box-sizing: border-box !important;
-        border: transparent var(--gap-size) solid !important;
+        border: var(--sidebar-background) var(--gap-size) solid !important;
     }
 }
 
@@ -431,6 +338,56 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
     #browser {
         border-left: none !important;
     }
+}
+
+/*********************
+     BROWSER STYLE
+**********************/
+
+#browser, #customization-container {
+    height: 100% !important;
+    position: absolute !important;
+    left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+}
+
+#customization-container {
+    background-color: var(--secondary-background) !important;
+}
+
+#sidebar-header, findbar, #sidebar-splitter {
+    border: none !important;
+}
+
+#customization-container,
+#wrapper-urlbar-container,
+#nav-bar[customizing] #urlbar-container,
+#sidebar-header #sidebar-switcher-target {
+    position: absolute !important;
+}
+
+#sidebar-header {
+    position: relative !important;
+
+    #sidebar-switcher-target {
+        top: 6px !important;
+        left: 8px !important;
+    }
+}
+
+#nav-bar[customizing] {
+    #urlbar-container {
+        left: 0px !important;
+        top: 34px !important;
+    }
+
+    toolbarpaletteitem:first-child toolbaritem {
+        padding: 0 !important;;
+    }
+}
+
+#TabsToolbar[customizing] {
+    margin-top: 38px !important;
 }
 
 /*********************
@@ -442,14 +399,12 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         height: 75vh !important;
         margin-top: 13vh !important;
 
-        left: calc(
-            -1 * var(--sidebar-width) - var(--compact-margin)
-        ) !important;
         transition: left 0.15s ease !important;
+        left: calc(-1 * var(--sidebar-width) - var(--compact-margin)) !important;
 
         margin-left: var(--compact-margin) !important;
-        border: 1px #373839 solid !important;
         border-radius: 6px !important;
+        border: 1px var(--border-color) solid !important;
 
         &:hover,
         &:has(#urlbar[focused=""]) {
@@ -473,17 +428,16 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
             left: calc(var(--sidebar-width) - 1px);
         }
 
-        #nav-bar #urlbar-container {
+        #nav-bar #urlbar-container, #TabsToolbar, #TabsToolbar-customization-target {
             width: calc(var(--sidebar-width) - 2 * 7px) !important;
         }
     }
 
     #browser, #customization-container {
-        left: 0 !important;
         width: 100% !important;
     }
 
-    :not(:has(#customization-container[hidden])) #navigator-toolbox {
+    :not(:has(#customization-container[hidden])) #navigator-toolbox, #browser, #customization-container {
         left: 0px !important;
     }
 
@@ -491,76 +445,17 @@ scrollbox[part="scrollbox"][flex="1"][orient="horizontal"][smoothscroll="true"]
         margin-top: 20vh !important;
         margin-left: var(--sidebar-width) !important;
     }
-}
 
-/*********************
-     BROWSER STYLE
-**********************/
+    @media (-moz-bool-pref: "custom.sidebar.bottom-extensions") {
+        #navigator-toolbox:hover #unified-extensions-button {
+            left: calc(var(--gap-size) + var(--compact-margin) + 1px) !important;
+        }
 
-#browser {
-    height: 100vh !important;
-    width: 100vw !important;
-    position: absolute !important;
-    background: var(--sidebar-background) !important;
-}
-
-#browser, #customization-container {
-    left: var(--sidebar-width) !important;
-    width: calc(100% - var(--sidebar-width)) !important;
-}
-
-#sidebar-header, findbar, #sidebar-box, #customization-container, #tabbrowser-tabpanels {
-    background: var(--secondary-background) !important;
-}
-
-#sidebar-header, findbar, #sidebar-splitter {
-    border: none !important;
-}
-
-#sidebar-header {
-    position: relative !important;
-
-    #sidebar-switcher-target {
-        top: 6px !important;
-        left: 8px !important;
-        position: absolute !important;
+        #unified-extensions-button {
+            height: fit-content !important;
+            transition: left 0.15s ease !important;
+            top: calc(88vh - 32px - var(--gap-size) - 1px) !important;
+            left: calc(-1 * var(--sidebar-width) - var(--compact-margin)) !important;
+        }
     }
-}
-
-#sidebar-splitter {
-    width: 2px !important;
-}
-
-#nav-bar[customizing] #urlbar-container,
-#customization-container,
-#wrapper-urlbar-container {
-    position: absolute !important;
-}
-
-#nav-bar[customizing] {
-    #urlbar-container {
-        margin: 0px !important;
-        left: 0px !important;
-        top: 34px !important;
-    }
-
-    toolbarpaletteitem:first-child toolbaritem {
-        padding: 0 !important;;
-    }
-}
-
-#TabsToolbar[customizing] {
-    margin-top: 38px !important;
-}
-
-#customization-container, #wrapper-urlbar-container {
-    height: 100% !important;
-}
-
-#customization-palette-container {
-    width: 100% !important;
-}
-
-#customization-panel-container {
-    display: none !important;
 }

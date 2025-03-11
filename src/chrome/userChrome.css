@@ -18,6 +18,7 @@
     --panel-separator-color: var(--border-color) !important;
     --panel-item-hover-bgcolor: var(--tab-background) !important;
 
+    --in-content-page-background: var(--secondary-background) !important;
     --urlbarView-hover-background: var(--tab-background) !important;
     --urlbarView-highlight-background: var(--tab-background) !important;
 

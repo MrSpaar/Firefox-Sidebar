@@ -1,15 +1,16 @@
 :root {
-    --sidebar-width: 200px;              /* Width of the sidebar in both modes */
-    --floating-urlbar-width: 600px;      /* Width of the urlbar when opened */
-    --urlbar-top-position: 20vh;         /* Equivalent to the top margin of the opened urlbar */
+    --sidebar-width: 200px;                                 /* Width of the sidebar in both modes */
+    --floating-urlbar-width: 600px;                         /* Width of the urlbar when opened */
+    --urlbar-top-position: 20vh;                            /* Equivalent to the top margin of the opened urlbar */
 
-    --compact-margin: 5px;               /* Left margin of the compact sidebar */
-    --compact-detection-width: 5px;      /* How far from the left the sidebar begins to show */
+    --compact-margin: 5px;                                  /* Left margin of the compact sidebar */
+    --compact-detection-width: 5px;                         /* How far from the left the sidebar begins to show */
 
-    --gap-size: 6px;                     /* Thickness of the gaps around the web page */
-    --gap-radius: 10px;                  /* Border radius of the web page */
+    --gap-size: 6px;                                        /* Thickness of the gaps around the web page */
+    --gap-radius: 10px;                                     /* Border radius of the web page */
 
-    --sidebar-background: #303030;       /* Sidebar and gap background color */
-    --secondary-background: #1e1e1e;     /* Bookmark, history and internal pages background color */
-    --tab-background: #444444;           /* Tab and empty urlbar background color */
+    --sidebar-background: light-dark(#fff, #303030);        /* Sidebar and gap background color */
+    --secondary-background: light-dark(#fafafa, #1e1e1e);   /* Bookmark, history and internal pages background color */
+    --tab-background: light-dark(#ebebeb, #444444);         /* Tab and empty urlbar background color */
+    --border-color: light-dark(#ebebeb, #444444);           /* Border color for separators etc... */
 }

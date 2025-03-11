@@ -235,6 +235,21 @@ toolbarbutton, toolbaritem, button, richlistitem {
     }
 }
 
+#navigator-toolbox[movingtab] {
+    #tabbrowser-tabs {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .tabbrowser-tab[style*='transform: translateX(188px);'] {
+        transform: translate(0, calc(32px + var(--gap-size))) !important;
+    }
+
+    .tabbrowser-tab[style*='transform: translateX(-188px);'] {
+        transform: translate(0, calc(-32px - var(--gap-size))) !important;
+    }
+}
+
 scrollbox[part="scrollbox"][orient="horizontal"][smoothscroll="true"] > * {
     gap: 4px !important;
     overflow: hidden scroll;
@@ -396,6 +411,7 @@ menupopup {
 
 @media (-moz-bool-pref: "custom.sidebar.compact") {
     #navigator-toolbox {
+        z-index: 99 !important;
         height: 75vh !important;
         margin-top: 13vh !important;
 

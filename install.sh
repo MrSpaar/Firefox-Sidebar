@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 NC='\033[0m'
-RED='\033[0;31m'
+RED='\033[1;31m'
 BLUE='\033[1;34m'
 GRAY='\033[0;90m'
 GRAY_UL='\033[4;90m'
@@ -52,6 +52,7 @@ if [ "$index" -lt 0 ] || [ "$index" -gt "$((${#found_paths[@]} - 1))" ]; then
 fi
 
 echo -e "💿 ${BLUE}Pulling Firefox Sidebar theme...${GRAY}"
+export GIT_CONFIG_PARAMETERS="color.ui=false"
 
 if [ ! -d "/tmp/firefox-sidebar" ]; then
     git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar

@@ -52,10 +52,10 @@ if [ "$index" -lt 0 ] || [ "$index" -gt "$((${#found_paths[@]} - 1))" ]; then
 fi
 
 echo -e "💿 ${BLUE}Pulling Firefox Sidebar theme...${GRAY}"
-export GIT_CONFIG_PARAMETERS="color.ui=false"
 
 if [ ! -d "/tmp/firefox-sidebar" ]; then
     git clone https://github.com/MrSpaar/Firefox-Sidebar.git /tmp/firefox-sidebar
+    git -C /tmp/firefox-sidebar config color.ui false
 else
     git -C /tmp/firefox-sidebar pull
 fi

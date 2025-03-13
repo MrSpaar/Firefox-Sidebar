@@ -31,7 +31,7 @@ for path in "${base_paths[@]}"; do
 done
 
 if [ "${#found_paths[@]}" -eq 0 ]; then
-    echo -e "😵 ${RED}No profiles found"
+    echo -e "😵 ${RED}No firefox, librewolf, floorp or waterfox profile found"
     exit 1
 fi
 
@@ -43,13 +43,17 @@ for path in "${found_paths[@]}"; do
     echo -e "  $index. ${GRAY_UL}${path}${NC}"
 done
 
-echo -e "${BLUE}>${NC} \c"
-read index
+while true; do
+    echo -e "${BLUE}>${NC} \c"
+    read index
 
-if [ "$index" -lt 0 ] || [ "$index" -gt "$((${#found_paths[@]} - 1))" ]; then
-    echo -e "😵 ${RED}Invalid selection${NC}"
-    exit 1
-fi
+    if [[ "$index" =~ ^[0-9]+$ ]] && [ "$index" -ge 0 ] && [ "$index" -lt "${#found_paths[@]}" ]; then
+        # Valid selection, break the loop
+        break
+    else
+        echo -e "😵 ${RED}Invalid selection${NC}"
+    fi
+done
 
 echo -e "💿 ${BLUE}Pulling Firefox Sidebar theme...${GRAY}"
 

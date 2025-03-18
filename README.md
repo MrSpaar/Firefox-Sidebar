@@ -1,6 +1,6 @@
 # Firefox Sidebar
 
-Customizable sidebar for Firefox-based browser:
+Opiniated and customizable sidebar for Firefox-based browser:
 
 <p align="center">
     <img src="./images/always-visible.png" width="49%" /> <img src="./images/compact.png" width="49%" />
